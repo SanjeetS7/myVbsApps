@@ -37,7 +37,7 @@ If Not myRecipient.Resolved Then
   MsgBox "Unknown recipient"
 Else
   newMail.Recipients.Add ToAddress
-  newMail.CC = "sanjeet.shukla@outlook.com"
+newMail.CC = "some.body@outlook.com"
 
   count=0
   set objFSO = CreateObject("Scripting.FileSystemObject")
