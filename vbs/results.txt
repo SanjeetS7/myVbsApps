@@ -1,0 +1,43 @@
+C:\Users\abc\Desktop\New Folder\sample.txt
+AccountName->AbcPos
+AccountName->dblLayer
+queryAccount->qskxyz
+queryName->qixyz
+queryName->abc
+queryName->def
+
+next
+
+C:\Users\abc\Desktop\New Folder\New folder\sample3.txt
+AccountName->AbcPos
+AccountName->dblLayer
+queryAccount->qskxyz
+queryName->qixyz
+AccountName->Names
+AccountName->prelLayer
+queryAccount->serchTerm
+queryName->myName1
+
+next
+
+C:\Users\abc\Desktop\New Folder\sample1.txt
+AccountName->AbcPos
+AccountName->dblLayer
+queryAccount->qskxyz
+queryName->qixyz
+
+next
+
+C:\Users\abc\Desktop\New Folder\sample2.txt
+AccountName->AbcPos
+AccountName->dblLayer
+queryAccount->qskxyz
+queryName->qixyz
+queryName->abc
+queryName->def
+AccountName->Names
+AccountName->prelLayer
+queryAccount->serchTerm
+queryName->myName1
+
+next
