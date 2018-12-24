@@ -33,7 +33,7 @@ A html based UI will open as shown in below image.
 To modify it, just open the app in notepad++ and you are done.
 Application Screenshot:
 
-![Converter](https://raw.githubusercontent.com/dsSanjeet/supporting_files/master/Adhoc_file_uploader.jpg "stringsearch")
+![Converter](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/upload.JPG "stringsearch")
 
 
 
