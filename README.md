@@ -1,7 +1,13 @@
 # myMicroProducts
 
+## 6. VLC PlayList Generator
+This app is work in progress:
+![Emailer](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/vlc.JPG "VLC")
+
+
+
 ## 5. XML Object Search
-![Emailer](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/ObjSearch.JPG "Emailer")
+![Emailer](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/ObjSearch.JPG "Xml Search")
 
 
 ## 4. Daily Status emailer application
