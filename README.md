@@ -17,7 +17,7 @@ It is a vbscript application to send email with attachement to predecided people
 How to use:- Contact me to know how to use it.
 
 
-![StringSearch](https://raw.githubusercontent.com/dsSanjeet/supporting_files/master/imageq.PNG "StringSearch")
+![StringSearch](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/objectSEarch.JPG "StringSearch")
 
 
 
