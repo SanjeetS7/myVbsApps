@@ -1,0 +1,185 @@
+<project xmlns="https://afdsl/skdflsk/d">
+
+	<name>AbcPos</name>
+
+	<property name="included" type="hidden">true</property>
+
+	<locales>
+
+		<locale>en</locale>
+
+		<locale>de</locale>
+
+	</locales>
+
+	<defaultLocale>en</defaultLocale>
+
+	<namespace>
+
+		<name locale="en">AbcPos</name>
+
+		<name locale="de">AbcPos</name>
+
+		<lastChanged>2014­03­05T18:47:30</lastChanged>
+
+		<lastChangedBy>userx</lastChangedBy>
+
+		<property name="included" type="hidden">true</property>
+
+		<namespace>
+
+			<name locale="en">Database Layer</name>
+
+			<name locale="zw">Database Layer</name>
+
+			<querySubject status="valid">
+
+				<name locale="en">qskxyz</name>
+
+				<name locale="zw">qskxyz</name>
+
+				<queryItem>
+
+					<name locale="en">qixyz</name>
+
+					<name locale="zw">qixyz</name>
+
+					<hello>searchTerm</hello>
+
+				</queryItem>
+
+			</querySubject>
+
+			<querySubject status="valid">
+
+				<name locale="en">damn</name>
+
+				<name locale="zw">damn</name>
+
+				<queryItem>
+
+					<name locale="en">hamn</name>
+
+					<name locale="zw">hamn</name>
+
+					<hello>searchTerm</hello>
+
+				</queryItem>
+
+			</querySubject>
+
+			<querySubject status="valid">
+
+				<name locale="en">sanm</name>
+
+				<name locale="zw">sanm</name>
+
+				<queryItem>
+
+					<name locale="en">ranm</name>
+
+					<name locale="zw">ranm</name>
+
+					<hello>searchTerm</hello>
+
+				</queryItem>
+
+			</querySubject>
+
+		</namespace>
+
+		<namespace>
+
+			<name locale="en">Names</name>
+
+			<lastChanged>2016­01­12T12:42:46</lastChanged>
+
+			<namespace>
+
+				<name locale="en">Database Layer</name>
+
+				<name locale="zw">Database Layer</name>
+
+				<querySubject status="valid">
+
+					<name locale="en">qsxyz</name>
+
+					<queryItem>
+
+						<name locale="en">myName</name>
+
+						<hello>...Hi there..</hello>
+
+					</queryItem>
+
+				</querySubject>
+
+			</namespace>
+
+		</namespace>
+
+		<namespace>
+
+			<name locale="en">business Layer</name>
+
+			<name locale="zw">business Layer</name>
+
+			<querySubject status="valid">
+
+				<name locale="en">hello</name>
+
+				<name locale="zw">hello</name>
+
+				<queryItem>
+
+					<name locale="en">here</name>
+
+					<name locale="zw">here</name>
+
+					<hello>searchTerm</hello>
+
+				</queryItem>
+
+			</querySubject>
+
+			<querySubject status="valid">
+
+				<name locale="en">dala</name>
+
+				<name locale="zw">dala</name>
+
+				<queryItem>
+
+					<name locale="en">bhag</name>
+
+					<name locale="zw">bhag</name>
+
+					<hello>searchTerm</hello>
+
+				</queryItem>
+
+			</querySubject>
+
+			<querySubject status="valid">
+
+				<name locale="en">raju</name>
+
+				<name locale="zw">hirani</name>
+
+				<queryItem>
+
+					<name locale="en">gobar</name>
+
+					<name locale="zw">ganj</name>
+
+					<hello>searchTerm</hello>
+
+				</queryItem>
+
+			</querySubject>
+
+		</namespace>
+
+	</namespace>
+
+</project>
