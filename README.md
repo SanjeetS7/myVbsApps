@@ -1,5 +1,9 @@
 # myMicroProducts
 
+## 4. XML Object Search
+![Emailer](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/ObjSearch.JPG "Emailer")
+
+
 ## 4. Daily Status emailer application
 
 It is a vbscript application to send email with attachement to predecided people. I can rename the file before emailing it and many more customizations are possible. 
@@ -8,6 +12,9 @@ How to use:- Contact me to know how to use it.
 
 
 ![Emailer](https://raw.githubusercontent.com/dsSanjeet/supporting_files/master/emailer%20app.PNG "Emailer")
+
+Update: I have lost its UI version of this application during cleaning up my github. Script version works fine and will work on UI when find some time.
+
 
 
 ## 3. String Search With proper line nubmer output
