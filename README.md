@@ -50,7 +50,7 @@ How to use:-
 
 Application Screenshot: 
 
-![stringsearch](https://raw.githubusercontent.com/dsSanjeet/supporting_files/master/stringsearch.JPG "stringsearch")
+![stringsearch](https://raw.githubusercontent.com/SanjeetS7/myVbsApps/master/images/srtingSearch.JPG "stringsearch")
 
 
 
