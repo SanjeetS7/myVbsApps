@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+  <title>Daily Status Emailer</title>
+  <meta name="author" content="Sanjeet Shukla" />
+  <meta name="description" content="Generate playlist for vlc media player" />
+  <HTA:APPLICATION ID="hta" APPLICATIONNAME="Daily Status Emailer" INNERBORDER="no" MINIMIZEBUTTON="yes" MAXIMIZEBUTTON="yes" SCROLL="no">
+  <style type="text/css">
+  * {
+    font-family:'Trebuchet MS';
+  }
+  html, body {
+    height:100%;
+    width:100%;
+  }
+  body {
+    background-color:#86cece;
+    border:none;
+    margin:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding:0;
+  }
+  h1 {
+    margin:0;
+    text-align:center;
+    filter:progid:DXImageTransform.Microsoft.DropShadow(OffX=5, OffY=5, Color=#e4b652);
+    zoom: 1;
+  }
+  code {
+    background-color:#DDD;
+    border:1px solid #CCC;
+    border-radius:5px;
+    padding:0 5px;
+    white-space:nowrap;
+  }
+  
+  #bodyWrapper {
+    padding:10px;
+  }
+
+  .textbox {
+    font-family:Courier;
+    padding:0;
+  }
+  .button {
+    border:3px solid #e4b652;
+    border-top-color:#E0E0E0;
+    border-left-color:#E0E0E0;
+    border-radius:5px;
+                margin: 0px 5px;
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#EEEEEE,endColorStr=#CCCCCC);
+    zoom:1;
+  }
+  td {
+    border-top:1px solid #DDD;
+    padding:5px 0;
+  }
+  td.label {
+    vertical-align:top;
+    width:1px;
+                
+  }
+  td.label label {
+    display:block;
+    text-align:right;
+    white-space:nowrap;
+  }
+  td.content {
+    width:99%;
+                color:#3b2f17;
+  }
+  td.content .textbox {
+    width:100%;
+  }
+    td.content .message {
+    color:#3b5998;
+                font-size: 16px;
+  }
+  
+  
+  td.content div.hint {
+    background-color:#EEE;
+    border:1px solid #999;
+    border-color:#BBB;
+    border-radius:5px;
+    font-size:90%;
+    margin:5px;
+    padding:5px;
+  }
+  td.extra {
+    width:1px;
+  }
+  td.options {
+    padding-top:10px;
+    text-align:center;
+  }
+</style>
+
+<script language="VBScript">
+
+Dim sDirectorypath
+Dim oFso
+
+
+Sub Browse
+    On Error Resume Next
+    Set bffShell = CreateObject("Shell.Application")
+    Set bff = bffShell.BrowseForFolder(0, "Select the My Documents folder", 9)
+    If Err.number<>0 Then
+        MsgBox "Error Setting up Browse for Folder"
+    Else
+        sDirectorypath = bff.ParentFolder.ParseName(bff.Title).Path
+        If err.number=424 then err.clear
+                tb2.value = sDirectorypath
+    End If
+End Sub
+
+Sub rename
+generatePlaylist(sDirectorypath) 
+End Sub
+
+
+sub generatePlaylist(folder)
+set oFso = createobject("scripting.filesystemobject")
+  set oFolder = oFso.getfolder(folder)
+  for each oFile in oFolder.files
+                file_name = Left(oFso.GetFileName(oFile), len(oFso.GetFileName(oFile))-21)
+    new_name = file_name & myDateFormat(date()) & "." & oFso.GetExtensionName(oFile)
+    MsgBox("renaming " & file_name & " => " & new_name)
+    errResult = oFso.MoveFile(oFile, "C:\Users\453562\Documents\DailyStatus\" & new_name)
+  next
+  for each oSubFolder in oFolder.subfolders
+    rename_files(oSubFolder)
+  next
+end sub
+
+
+
+'****************************************
+'*     VBScript-- Helper Functions      *
+'****************************************
+
+'Function expressFn()
+'                rename()
+'                sendEmail()
+'End Function
+
+
+
+
+Sub Init
+    On Error Resume Next
+    Set WshShell = CreateObject("WScript.Shell")
+                tb1.value = sDirectorypath
+    tb2.value = MessageBody
+'               window.resizeTo screen.availWidth/2,screen.availHeight/2
+'    window.moveTo screen.availWidth/4,screen.availHeight/4
+
+End Sub
+
+'https://stackoverflow.com/questions/31817632/outlook-reply-or-replyall-to-an-email
+
+</script>
+
+<script language="javascript" type="text/javascript">
+  window.resizeTo(680,547);
+</script> 
+ 
+</head>
+
+<body Onload=Init>
+  
+  <div id="bodyWrapper">
+    <h1>Daily Status Emailer</h1>
+    <table>
+      <tr>
+        <td class="label"><label>Folder:</label></td>
+        <td class="content"><input Name=tb1 type="text" id="txtFolder" class="textbox readonly" readonly="readonly" /></td>
+        <td class="extra"><input type="button" id="btnBrowseFolder" class="button" value=" Browse Folder  " OnClick = Browse /></td>
+      </tr>
+      <tr class="option">
+        <td class="label"><label for="txtNamingSchema">File Name</label></td>
+                                
+        <td class="content">
+          <input type="text" id="txtNamingSchema" class="textbox" value="&lt;File_Name&gt; - &lt;DDth-Month-YYYY&gt;.ext" /></td>
+                                  <td class="extra"><input type="button" id="btnRename" class="button" value="Click to Rename" OnClick = rename value ="" & sDirectorypath & ""/></td>
+        </td>
+      </tr>
+                  <tr>
+                  <td></td>
+                                <td class="content" colspan="10">
+                                <div class="hint">You can change the naming scheme for files through following changes:
+            <ul>
+              <li><code>&lt;File_Name&gt;</code> - This is the original file name.</li>
+              <li><code>&lt;DDth-Month-YYYY&gt;</code> - Modify <code>&lt;myDateFormat()&gt;</code> to change it.</li>
+            </ul>
+        </div>
+                                </td>
+                  </tr>
+      <tr>
+        <td class="label"><label>Message:</label></td>
+        <td class="content" colspan="2">
+          <textarea id="txtSheetFilters" class="textbox message" name=tb2 rows="9"></textarea>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="options" colspan="3">
+          <input type="button" id="btnStart" class="button" value="Send Email" OnClick = sendEmail />
+          <input type="button" id="btnAboutThisApp" class="button" value="Rename + Send" OnClick = expressFn />
+          <input type="button" id="btnClose" class="button" value="Close" />
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
