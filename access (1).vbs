@@ -1,7 +1,7 @@
 '===========================
-strServer = "torbaetl01-qa.tornier.com"
-strUsername = "sshukla@us"	'InputBox("Enter the user name to access " & strServer, "Network Username", "username@domain")
-strPassword = "Hawkins124"	'InputBox("Enter the password for the user " & strUsername, "Network Password")
+strServer = "torsasql-qa.hornier.com"
+strUsername = "username@us"	'InputBox("Enter the user name to access " & strServer, "Network Username", "username@domain")
+strPassword = "password#124"	'InputBox("Enter the password for the user " & strUsername, "Network Password")
 
 strCommand = "cmd /c cmdkey /add:" & strServer & " /user:" & strUsername & " /pass:" & strPassword
 Set objShell = CreateObject("WScript.Shell")
@@ -12,7 +12,7 @@ MsgBox strUsername & " has been added to the credentials list."
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 strSourceFile = "C:\Users\453562\Desktop\loginfo.txt"
-strDestDir = "\\torbaetl01-qa.tornier.com\e$\Data_Manager_Backup\"				'Double backslash used to access network shares with UNC naming scheme.	
+            strDestDir = "\\torsasql01-qa.hornier.com\e$\Data_Manager_Backup\"				'Double backslash used to access network shares with UNC naming scheme.	
 If Right(strDestDir, 1) <> "\" Then
       strDestDir = strDestDir & "\"
 End If
