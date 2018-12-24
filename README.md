@@ -13,7 +13,7 @@ How to use:- Contact me to know how to use it.
 
 ![Emailer](https://raw.githubusercontent.com/dsSanjeet/supporting_files/master/emailer%20app.PNG "Emailer")
 
-* Update: I have lost its UI version of this application during cleaning up my github. Script version works fine and will work on UI when find some time.
+* Update: I have lost its UI version of this application during cleaning up my github. Script version works fine and will re-work on UI when find some time. 
 
 
 
