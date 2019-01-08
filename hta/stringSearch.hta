@@ -1,0 +1,109 @@
+<HTML> 
+<HEAD><TITLE>Simple Validation</TITLE> 
+
+ <HTA:APPLICATION APPLICATIONNAME="Simple HTA" SYSMENU="yes">
+    <title>Simple HTA</title>
+
+<style type="text/css">
+      body {background-color:lightsteelblue;}
+          p {font:bold 18px arial;}
+          
+          #directory, #search
+        {
+            height:50px;
+        	width:500px;
+            font-size:14pt;
+        }
+    </style>
+
+<SCRIPT LANGUAGE="VBScript">
+Dim Dirname
+Dim Searchterm
+Dim FSO
+Dim objOutFile
+Dim querySubject
+
+
+Sub Browse
+    On Error Resume Next
+    Set bffShell = CreateObject("Shell.Application")
+    Set bff = bffShell.BrowseForFolder(0, "Select the My Documents folder", 9)
+    If Err.number<>0 Then
+        MsgBox "Error Setting up Browse for Folder"
+    Else
+        A = bff.ParentFolder.ParseName(bff.Title).Path
+        If err.number=424 then err.clear
+                tb2.value = A
+    End If
+End Sub
+
+Sub Search
+    On Error Resume Next
+    Set WshShell = CreateObject("WScript.Shell")
+    WshShell.RegWrite "user\Destop\VBS\Searchterm", tb1.value
+    WshShell.RegWrite "user\Deskop\VBS\Directory", tb2.value
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set objOutFile = fso.CreateTextFile("results.txt",True)
+    Dirname = tb2.value
+    Searchterm = tb1.value
+    ProcessFolder DirName
+End Sub
+
+Sub ProcessFolder(FolderPath)
+    On Error Resume Next
+    Set fldr = fso.GetFolder(FolderPath)
+
+    Set Fls = fldr.files
+    For Each thing in Fls
+        Set contents = thing.OpenAsTextStream
+        If err.number = 0 then
+        Linenum = 0
+        Do Until contents.AtEndOfStream
+            line = contents.readline
+            Linenum = Linenum + 1
+                Test = Instr(line, searchterm) 
+                If Isnull(Test) = false then If Test > 0 then demo.innerHtml = demo.innerHtml & thing.path & " "& Linenum &"<br>"
+'				Test1 = Instr(line, querySubject)
+'				If Isnull(Test1) = false then If Test1 > 0 then Set querySubject = line.getElementsByTagName("queryItem") 
+'				MsgBox (querySubject)
+        Loop
+		
+        Else
+            err.clear
+        End If
+    Next
+
+    Set fldrs = fldr.subfolders
+    For Each thing in fldrs
+        ProcessFolder thing.path
+    Next
+
+End Sub
+
+Sub Init
+    On Error Resume Next
+    Set WshShell = CreateObject("WScript.Shell")
+    tb1.value = WshShell.RegRead("user\Destop\VBS\Searchterm")
+    tb2.value = WshShell.RegRead("user\Deskop\VBS\Directory")
+End Sub
+
+</script>
+</head>
+<body Onload=Init><p>This Simple HTA to search strings</p>
+
+<p><INPUT Name=tb1 id=search TYPE=Text Value="Enter Search Here" placeholder = "Input String to search">
+<p><INPUT Name=tb2 id=directory TYPE=Text Value="Enter Directory" placeholder="Directory to search"> <INPUT NAME="Browse" TYPE="BUTTON" VALUE="Browse" OnClick=Browse>
+<p><INPUT NAME="Search" TYPE="BUTTON" VALUE="Search" OnClick="Search"> <INPUT NAME="Clear" TYPE="BUTTON" VALUE="Clear" OnClick="window.location.reload()"></p>
+
+<ul id = "demo">
+<ul id = "demo1"></ul>
+</ul>
+
+
+</body>
+
+<script language="javascript" type="text/javascript">
+  window.resizeTo(640,480);
+</script>
+
+</html>
